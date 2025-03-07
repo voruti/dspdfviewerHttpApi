@@ -1,0 +1,25 @@
+{
+  "name": "dspdfviewerhttpapi",
+  "version": "1.0.0",
+  "description": "A HTTP API for dannyedel/dspdfviewer.",
+  "main": "dist/index.js",
+  "scripts": {
+    "clean": "tsc --build --clean",
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voruti/dspdfviewerHttpApi.git"
+  },
+  "author": "voruti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/voruti/dspdfviewerHttpApi/issues"
+  },
+  "homepage": "https://github.com/voruti/dspdfviewerHttpApi#readme",
+  "devDependencies": {
+    "@types/node": "^22.13.9",
+    "typescript": "^5.8.2"
+  }
+}
