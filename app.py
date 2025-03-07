@@ -38,5 +38,5 @@ def goto_slide(page: int):
     """
     press("g", interval=0.1)
     for char in str(page):
-        press(char, interval=0.1)
-    press("enter", interval=0.1)
+        press(char, interval=0.05)
+    press("enter", interval=0.05)
