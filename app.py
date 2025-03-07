@@ -22,8 +22,13 @@ def entrypoint_with_item(item: str):
     data: str = request.get_data(as_text=True)
     print(f"POST {item} to {data}")
 
-    {"slide": lambda: goto_slide(int(data))}.get(item, lambda: print("Unimplemented"))()
+    action = {"slide": lambda: goto_slide(int(data))}.get(item)
 
+    if action == None:
+        print("Unimplemented")
+        return "Unimplemented", 404
+
+    action()
     return "OK"
 
 
