@@ -22,7 +22,10 @@ def entrypoint_with_item(item: str):
     data: str = request.get_data(as_text=True)
     print(f"POST {item} to {data}")
 
-    action = {"slide": lambda: goto_slide(int(data))}.get(item)
+    action = {
+        "slide": lambda: goto_slide(int(data)),
+        "action": lambda: slide_action(data),
+    }.get(item)
 
     if action == None:
         print("Unimplemented")
@@ -45,3 +48,19 @@ def goto_slide(page: int):
     for char in str(page):
         press(char, interval=0.05)
     press("enter", interval=0.05)
+
+
+def slide_action(action: str):
+    """Executes an action on the slides.
+
+    Args:
+        action (str): The slide action to perform.
+
+    Returns:
+        None
+    """
+    first_char = action.lower().strip()[0]
+    if first_char == "v":
+        press("p")
+    else:
+        press(first_char)
