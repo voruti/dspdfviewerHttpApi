@@ -27,7 +27,7 @@ def entrypoint_with_item(item: str):
         "action": lambda: slide_action(data),
     }.get(item)
 
-    if action == None:
+    if action is None:
         print("Unimplemented")
         return "Unimplemented", 404
 
@@ -60,7 +60,8 @@ def slide_action(action: str):
         None
     """
     first_char = action.lower().strip()[0]
-    if first_char == "v": # interpret the German word "vorherige" as previous
+    if first_char == "v":
+        # interpret the German word "vorherige" as previous
         press("p")
     else:
         press(first_char)
