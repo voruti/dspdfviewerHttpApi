@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 @app.route("/<item>", methods=["GET"])
-def get_item():
+def get_item(_: str):
     """Handles GET requests for a specific item.
 
     Returns:
