@@ -22,16 +22,19 @@ def entrypoint_with_item(item: str):
     data: str = request.get_data(as_text=True)
     print(f"POST {item} to {data}")
 
-    action = {
+    func = None
+    for available_item, available_function in {
         "slide": lambda: goto_slide(int(data)),
         "action": lambda: slide_action(data),
-    }.get(item)
+    }.items():
+        if item.lower().startswith(available_item):
+            func = available_function
 
-    if action is None:
+    if func is None:
         print("Unimplemented")
         return "Unimplemented", 404
 
-    action()
+    func()
     return "OK"
 
 
