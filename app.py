@@ -9,6 +9,16 @@ from pyautogui import press
 app = Flask(__name__)
 
 
+@app.route("/<item>", methods=["GET"])
+def get_item():
+    """Handles GET requests for a specific item.
+
+    Returns:
+        None
+    """
+    return "stateless"
+
+
 @app.route("/<item>", methods=["POST"])
 def entrypoint_with_item(item: str):
     """Handles POST requests for a specific item.
